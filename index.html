@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name="description" content="Feedback - Marvel Flix">
+    <title>Enigma - Telegram</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        form {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        label, input[type="submit"] {
+            display: block;
+            margin: 20px center;
+        }
+        
+        input[type="text"] {
+            width: 70%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        footer {
+            width: 70%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            width: 30%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <label for="message">Mensagem:</label>
+        <br>
+        <input type="text" id="message" name="message">
+        <br>
+        <center>
+            <input type="submit" value="Enviar">
+        </center>
+    </form>
+<!--Alerta-->
+<script>
+    alert("Use com moderação!");
+    </script>
+    <script>
+        const form = document.getElementById('form');
+        const url = "https://api.telegram.org/bot6134324621:AAG90QFAN8tjFz4TLopqAJEkPWAXo8-tEZM/sendMessage";
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const message = document.getElementById('message').value;
+            const chatId = "-1001539800946";
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then((response) => {
+                if (response.ok) {
+                    alert('Mensagem enviada com sucesso!');
+                } else {
+                    alert('Erro ao enviar a mensagem');
+                }
+            })
+            .catch((error) => {
+                alert('Erro ao enviar a mensagem');
+            });
+        });
+    </script>
+
+    <center>
+        <footer>
+          <p>Jetrom</p>
+          <p>Profile</p>
+          <a href="https://web.sketchub.in/u/Jetrom">Discord</a>
+        </footer>
+    </center>
+</body>
+</html>
