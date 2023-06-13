@@ -126,10 +126,10 @@
   </style>
 </head>
 <body>
-  <!--Som.mp3-->
+  <!--Inicializa o "som.mp3" e ".png"-->
 <div id="intro" class="intro-container">
   <div class="logo">
-    <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Logo da Netflix">
+    <img src="https://cdn.icon-icons.com/icons2/153/PNG/256/icone_winamp_21860.png" alt="MarvelFlix">
   </div>
 </div>
 <audio id="som" src="som.mp3"></audio>
@@ -173,12 +173,12 @@
       </div>
     </div>
 
-    <!-- Adicione aqui -->
+    <!-- Adicionar mais aqui -->
 
   </div>
 
   <script>
-    // Função para filtrar os itens da playlist de acordo com o termo de pesquisa
+    // Filtrar os itens da playlist de acordo com o termo de pesquisa
     function searchPlaylist() {
       const input = document.getElementById('searchInput');
       const filter = input.value.toUpperCase();
@@ -200,7 +200,7 @@
     // Detectar alterações no campo de pesquisa
     document.getElementById('searchInput').addEventListener('input', searchPlaylist);
  
- // Inicia o som.mp3   
+ // Inicia o "som.mp3" com ".png" 
     window.onload = function() {
   var introContainer = document.getElementById('intro');
   var logo = document.querySelector('.logo');
@@ -213,9 +213,10 @@
 
   setTimeout(function() {
     introContainer.style.display = 'none';
-  }, 3000); // Aguarde 5 segundos antes de ocultar a introdução
+  }, 3000); // Aguardar 5 segundos antes de ocultar "intro"
 }
 
   </script>
 </body>
+  <!--My Codepen: https://codepen.io/Jeiel-Miranda/pen/ExOVbpe -->
 </html>
