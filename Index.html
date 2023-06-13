@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playlist de Filmes, Séries e Animes</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(to right, #061542, #0F52AF);
+
+    }
+
+    .playlist-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .playlist-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .media-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+    }
+
+    .media-thumbnail {
+      flex: 0 0 120px;
+      margin-right: 10px;
+    }
+
+    .media-thumbnail img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .media-info {
+      flex-grow: 1;
+    }
+
+    .media-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: black;
+    }
+
+    .media-description {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .media-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1998FF;
+      color: black;
+      cursor: pointer;
+    }
+
+    .media-button:hover {
+      background-color: #0d8bef;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .media-item.hidden {
+      display: none;
+    }
+    
+    /* Opacity */
+.intro-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.logo {
+  position: relative;
+  opacity: 0;
+  animation-name: logoAnimation;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes logoAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <!--Som.mp3-->
+<div id="intro" class="intro-container">
+  <div class="logo">
+    <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Logo da Netflix">
+  </div>
+</div>
+<audio id="som" src="som.mp3"></audio>
+<!-- Configurações do código -->
+  <div class="playlist-container">
+    <h1 class="playlist-title">Playlist de Filmes, Séries e Animes</h1>
+
+    <div class="search-container">
+      <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar...">
+    </div>
+
+    <div class="media-item">
+      <div class="media-thumbnail">
+        <a href="https://embed.warezcdn.net/filme/tt9362722" target="_blank">
+          <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Thumbnail Filme/Série/Anime 1">
+        </a>
+      </div>
+      
+      <!-- Filme 1 -->
+      
+      <div class="media-info">
+        <h2 class="media-title">Spider-Man: Across the Spider-Verse (2023)</h2>
+        <p class="media-description">Depois de se reunir com Gwen Stacy, o amigável bairro do Brooklyn, o Homem-Aranha, é catapultado através do Multiverso, onde ele encontra a Sociedade Aranha, uma equipe de Pessoas-Aranha encarregada de proteger a própria existência do Multiverso. Mas quando os heróis entram em conflito sobre como lidar com uma nova ameaça, Miles se vê confrontado com as outras Aranhas e deve partir sozinho para salvar aqueles que mais ama.</p>
+        <button class="media-button" onclick="window.open('https://embed.warezcdn.net/filme/tt9362722', '_blank')">Assistir</button>
+      </div>
+    </div>
+
+    <div class="media-item">
+      <div class="media-thumbnail">
+        <a href="https://embed.warezcdn.net/filme/tt9362722" target="_blank">
+          <img src="https://www.themoviedb.org/t/p/w220_and_h330_face/k5mQ2G1jS47fuxCjmkzFDeaNYvj.jpg" alt="Thumbnail Filme/Série/Anime 2">
+        </a>
+      </div>
+      
+      <!-- Filme 2 -->
+      
+      <div class="media-info">
+        <h2 class="media-title">Transformers: Rise of the Beasts (2023)</h2>
+        <p class="media-description">Quando surge uma nova ameaça capaz de destruir todo o planeta, Optimus Prime e os Autobots devem se unir a uma poderosa facção conhecida como Maximals. Com o destino da humanidade em jogo, os humanos Noah e Elena farão o que for preciso para ajudar os Transformers enquanto eles se envolvem na batalha final para salvar a Terra.</p>
+        <button class="media-button" onclick="window.open('https://superflixapi.org/filme/tt5090568', '_blank')">Assistir</button>
+      </div>
+    </div>
+
+    <!-- Adicione aqui -->
+
+  </div>
+
+  <script>
+    // Função para filtrar os itens da playlist de acordo com o termo de pesquisa
+    function searchPlaylist() {
+      const input = document.getElementById('searchInput');
+      const filter = input.value.toUpperCase();
+      const mediaItems = document.querySelectorAll('.media-item');
+
+      mediaItems.forEach(function(item) {
+        const title = item.querySelector('.media-title');
+        const description = item.querySelector('.media-description');
+        const shouldDisplay = title.innerText.toUpperCase().indexOf(filter) > -1 || description.innerText.toUpperCase().indexOf(filter) > -1;
+
+        if (shouldDisplay) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    // Detectar alterações no campo de pesquisa
+    document.getElementById('searchInput').addEventListener('input', searchPlaylist);
+ 
+ // Inicia o som.mp3   
+    window.onload = function() {
+  var introContainer = document.getElementById('intro');
+  var logo = document.querySelector('.logo');
+  var som = document.getElementById('som');
+
+  som.onloadeddata = function() {
+    logo.style.opacity = 1;
+    som.play();
+  };
+
+  setTimeout(function() {
+    introContainer.style.display = 'none';
+  }, 3000); // Aguarde 5 segundos antes de ocultar a introdução
+}
+
+  </script>
+</body>
+</html>
